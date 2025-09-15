@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>PlayMod — Tải app</title>
+  <meta name="description" content="Trang tải PlayMod — tải APK, xem tính năng và điều khoản." />
+  <style>
+    :root{
+      --accent:#2b7cff;
+      --bg:#f6f8fb;
+      --glass-bg: rgba(255,255,255,0.6);
+      --card-shadow: 0 6px 18px rgba(10,20,40,0.08);
+      --maxw:1100px;
+    }
+    *{box-sizing:border-box;font-family:Inter,system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial;}
+    body{margin:0;background:linear-gradient(180deg,#eef4ff 0%, #f6f8fb 100%);color:#111;}
+    .container{max-width:var(--maxw);margin:0 auto;padding:28px;}
+    header{display:flex;align-items:center;justify-content:space-between;padding:8px 0}
+    .logo{display:flex;align-items:center;gap:12px}
+    .logo¹111¹11¹¹¹img{width:44px;height:44px;border-radius:10px;object-fit:cover}
+    .logo h1{font-size:18px;margin:0}
+    nav a{color:#222;text-decoration:none;margin-left:16px;font-weight:600}
+    .hero{display:flex;gap:32px;align-items:center;padding:36px 0}
+    .hero-left{flex:1}
+    .kicker{display:inline-block;padding:6px 10px;background:rgba(43,124,255,0.12);color:var(--accent);border-radius:999px;font-weight:700;font-size:13px}
+    h2{font-size:32px;margin:16px 0 12px;line-height:1.05}
+    p.lead{color:#444;margin:0 0 20px}
+    .btn-row{display:flex;gap:12px;align-items:center}
+    .btn{background:var(--accent);color:#fff;padding:12px 18px;border-radius:12px;text-decoration:none;font-weight:700;box-shadow:var(--card-shadow);display:inline-flex;gap:10px;align-items:center}
+    .btn.alt{background:transparent;color:var(--accent);border:2px solid rgba(43,124,255,0.14)}
+    .card{background:var(--glass-bg);backdrop-filter: blur(6px);border-radius:14px;padding:14px;box-shadow:var(--card-shadow)}
+    .hero-right{width:420px;max-width:42%;min-width:260px}
+    .screenshot{width:100%;border-radius:14px;display:block;box-shadow:0 10px 30px rgba(15,23,40,0.12)}
+    .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:28px}
+    .feature{background:#fff;border-radius:12px;padding:16px;box-shadow:var(--card-shadow)}
+    .feature h3{margin:0 0 8px;font-size:16px}
+    footer{margin-top:36px;padding:24px 0;color:#666;font-size:14px;text-align:center}
+    .small{font-size:13px;color:#666}
+    /* modal */
+    .modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,0.4);display:none;align-items:center;justify-content:center;padding:24px;z-index:90}
+    .modal{background:#fff;max-width:900px;width:100%;border-radius:12px;padding:20px;box-shadow:0 30px 80px rgba(0,0,0,0.25);max-height:80vh;overflow:auto}
+    .modal h4{margin:0 0 10px}
+    .close-btn{background:#eee;border-radius:8px;padding:6px 10px;cursor:pointer}
+    /* responsive */
+    @media (max-width:880px){
+      .hero{flex-direction:column-reverse;align-items:flex-start}
+      .hero-right{width:100%}
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <div class="logo">
+        <img src="logo.png" alt="logo"/>
+        <h1>PlayMod</h1>
+      </div>
+      <nav>
+        <a href="#features">Tính năng</a>
+        <a href="#download">Tải về</a>
+        <a href="#" id="termsLink">Điều khoản</a>
+      </nav>
+    </header>
+
+    <main class="hero" role="main">
+      <div class="hero-left">
+        <span class="kicker">Phiên bản miễn phí</span>
+        <h2>PlayMod — Tối ưu kết nối, cải thiện trải nghiệm chơi</h2>
+        <p class="lead">Giảm lag, kiểm tra ping và tối ưu kết nối cho trò chơi yêu thích của bạn. Dễ dùng và không yêu cầu root.</p>
+
+        <div class="btn-row" id="download">
+          <a class="btn" id="downloadBtn" href="https://example.com/app.apk" download>
+            ⬇ Tải về APK
+          </a>
+          <a class="btn alt" id="openGuide" href="#features">Xem tính năng</a>
+        </div>
+
+        <div style="margin-top:18px;">
+          <div class="card small">
+            <strong>Chú ý:</strong> Trước khi cài APK, hãy bật cho phép cài ứng dụng không rõ nguồn gốc. Luôn đảm bảo bạn tải file từ nguồn tin cậy.
+          </div>
+        </div>
+
+        <section id="features" style="margin-top:18px">
+          <h3>Tính năng chính</h3>
+          <div class="features">
+            <div class="feature">
+              <h3>Kiểm tra ping</h3>
+              <p class="small">Theo dõi ping thời gian thực và cảnh báo khi ping cao.</p>
+            </div>
+            <div class="feature">
+              <h3>Tối ưu kết nối</h3>
+              <p class="small">Tùy chọn tối ưu gói mạng, giảm jitter cho game.</p>
+            </div>
+            <div class="feature">
+              <h3>Giao diện nhẹ</h3>
+              <p class="small">Thiết kế tối giản, ít tốn tài nguyên.</p>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <aside class="hero-right">
+        <div class="card">
+          <img class="screenshot" src="screenshot-1.png" alt="screenshot"/>
+        </div>
+      </aside>
+    </main>
+
+    <footer>
+      <div class="small">© <span id="year"></span> PlayPing. <a href="#" id="privacy">Chính sách</a> • <a href="#" id="contact">Liên hệ</a></div>
+    </footer>
+  </div>
+
+  <!-- Modal Điều khoản -->
+  <div class="modal-backdrop" id="modalBackdrop" role="dialog" aria-modal="true">
+    <div class="modal" role="document">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+        <h4>Điều khoản & Chính sách</h4>
+        <button class="close-btn" id="closeModal">Đóng</button>
+      </div>
+      <p class="small">(Mẫu điều khoản) Vui lòng thay bằng nội dung thực tế của bạn. Nội dung ở đây mô tả quyền truy cập, thu thập dữ liệu, và điều kiện sử dụng.</p>
+      <h5>1. Dữ liệu & Quyền</h5>
+      <p class="small">Ứng dụng có thể thu thập dữ liệu hiệu suất (ping, cấu hình thiết bị) để cải thiện trải nghiệm. Không thu thập dữ liệu cá nhân nhạy cảm.</p>
+      <h5>2. Trách nhiệm</h5>
+      <p class="small">Người dùng chịu trách nhiệm về cách sử dụng ứng dụng. Nhà phát triển không chịu trách nhiệm cho hành vi vi phạm điều khoản của bên thứ ba.</p>
+      <p class="small" style="margin-top:14px">— Hết —</p>
+    </div>
+  </div>
+
+  <script>
+    // small helpers
+    document.getElementById('year').textContent = new Date().getFullYear();
+    // modal
+    const modal = document.getElementById('modalBackdrop');
+    document.getElementById('termsLink').addEventListener('click', (e)=>{
+      e.preventDefault();
+      modal.style.display = 'flex';
+    });
+    document.getElementById('closeModal').addEventListener('click', ()=> modal.style.display = 'none');
+    modal.addEventListener('click', (e)=> { if(e.target===modal) modal.style.display='none' });
+
+    // optional: confirm download (analytics or warning)
+    document.getElementById('downloadBtn').addEventListener('click', function(e){
+      // you can add confirmation or tracking here
+      // e.g. if(!confirm('Mở liên kết tải về?')) e.preventDefault();
+    });
+
+    // Accessibility: keyboard close
+    window.addEventListener('keydown', function(e){
+      if(e.key === 'Escape') modal.style.display='none';
+    });
+  </script>
+</body>
+</html>
