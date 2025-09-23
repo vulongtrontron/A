@@ -15,12 +15,31 @@
     }
     *{box-sizing:border-box;font-family:Inter,system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial;}
     body{margin:0;background:linear-gradient(180deg,#eef4ff 0%, #f6f8fb 100%);color:#111;}
-    .container{max-width:var(--maxw);margin:0 auto;padding:28px;}
-    header{display:flex;align-items:center;justify-content:space-between;padding:8px 0}
+
+    header{
+      position:fixed; 
+      top:0;
+      left:0;
+      width:100%;
+      /* nền bán trong suốt + hiệu ứng blur */
+      background:rgba(255,255,255,0.5);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      
+      z-index:100;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:8px 28px;
+      box-shadow:0 2px 8px rgba(0,0,0,0.05);
+    }
     .logo{display:flex;align-items:center;gap:12px}
-    .logo¹111¹11¹¹¹img{width:44px;height:44px;border-radius:10px;object-fit:cover}
+    .logo img{width:44px;height:44px;border-radius:10px;object-fit:cover}
     .logo h1{font-size:18px;margin:0}
     nav a{color:#222;text-decoration:none;margin-left:16px;font-weight:600}
+
+    .container{max-width:var(--maxw);margin:0 auto;padding:calc(28px + 72px) 28px 28px;} /* cộng thêm padding-top bằng chiều cao header */
+
     .hero{display:flex;gap:32px;align-items:center;padding:36px 0}
     .hero-left{flex:1}
     .kicker{display:inline-block;padding:6px 10px;background:rgba(43,124,255,0.12);color:var(--accent);border-radius:999px;font-weight:700;font-size:13px}
@@ -51,24 +70,24 @@
 </head>
 <body>
 
-  <div class="container">
-    <header>
-      <div class="logo">
-        <img src="logo.png" alt="logo"/>
-        <h1>PlayMod</h1>
-      </div>
-      <nav>
-        <a href="#features">Tính năng</a>
-        <a href="#download">Tải về</a>
-        <a href="#" id="termsLink">Điều khoản</a>
-      </nav>
-    </header>
+  <header>
+    <div class="logo">
+      <img src="https://i.ibb.co/VW889CnW/Picsart-25-09-12-18-04-20-273.png" alt="logo"/>
+      <h1>PlayMod</h1>
+    </div>
+    <nav>
+      <a href="#features">Tính năng</a>
+      <a href="#download">Tải về</a>
+      <a href="#" id="termsLink">Điều khoản</a>
+    </nav>
+  </header>
 
+  <div class="container">
     <main class="hero" role="main">
       <div class="hero-left">
         <span class="kicker">Phiên bản miễn phí</span>
         <h2>PlayMod — Tối ưu kết nối, cải thiện trải nghiệm chơi</h2>
-        <p class="lead">Thay đổi, chỉnh sửa mã nguồn game free fire, ứng dụng mang tính chất trải nghiệm.</p>
+        <p class="lead">Thay đổi, chỉnh sửa mã nguồn game Free Fire, ứng dụng mang tính chất trải nghiệm.</p>
 
         <div class="btn-row" id="download">
           <a class="btn" id="downloadBtn" href="https://example.com/app.apk" download>
@@ -88,11 +107,11 @@
           <div class="features">
             <div class="feature">
               <h3>Chỉnh sửa file game tăng lợi thế</h3>
-              <p class="small">Cacs chức năng mới làm tăng lợi thế cạnh tranh .</p>
+              <p class="small">Cacs chức năng mới làm tăng lợi thế cạnh tranh.</p>
             </div>
             <div class="feature">
               <h3>Tối ưu trải nghiệm</h3>
-              <p class="small">Tùy chọn tối ưu gói mạng, giảm jitter cho game.</p>
+              <p class="small">Tùy chọn tối ưu game, giảm lag cho game.</p>
             </div>
             <div class="feature">
               <h3>Giao diện nhẹ</h3>
@@ -105,6 +124,46 @@
       <aside class="hero-right">
         <div class="card">
           <img class="screenshot" src="screenshot-1.png" alt="screenshot"/>
+        </div>
+      </aside>
+    </main>
+
+    <footer>
+      <div class="small">© <span id="year"></span> PlayMod. <a href="#" id="privacy">Chính sách</a> • <a href="#" id="contact">Liên hệ</a></div>
+    </footer>
+  </div>
+
+  <!-- Modal Điều khoản -->
+  <div class="modal-backdrop" id="modalBackdrop" role="dialog" aria-modal="true">
+    <div class="modal" role="document">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+        <h4>Điều khoản & Chính sách</h4>
+        <button class="close-btn" id="closeModal">Đóng</button>
+      </div>
+      <p class="small">...</p>
+      <h5>1. Dữ liệu & Quyền</h5>
+      <p class="small">Ứng dụng có thể thu thập dữ liệu hiệu suất (ping, cấu hình thiết bị) để cải thiện trải nghiệm. Không thu thập dữ liệu cá nhân nhạy cảm.</p>
+      <h5>2. Trách nhiệm</h5>
+      <p class="small">Người dùng chịu trách nhiệm về cách sử dụng ứng dụng. Nhà phát triển không chịu trách nhiệm cho hành vi vi phạm điều khoản của bên thứ ba.</p>
+      <p class="small" style="margin-top:14px">— Hết —</p>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const modal = document.getElementById('modalBackdrop');
+    document.getElementById('termsLink').addEventListener('click', (e)=>{
+      e.preventDefault();
+      modal.style.display = 'flex';
+    });
+    document.getElementById('closeModal').addEventListener('click', ()=> modal.style.display = 'none');
+    modal.addEventListener('click', (e)=> { if(e.target===modal) modal.style.display='none' });
+    window.addEventListener('keydown', function(e){
+      if(e.key === 'Escape') modal.style.display='none';
+    });
+  </script>
+</body>
+            </html>          <img class="screenshot" src="screenshot-1.png" alt="screenshot"/>
         </div>
       </aside>
     </main>
