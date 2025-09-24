@@ -6,80 +6,90 @@
 <title>PlayMod — Tải app</title>
 <meta name="description" content="Trang tải PlayMod — tải APK" />
 <style>
-  :root{
-    --accent:#2b7cff;
-    --bg:#f6f8fb;
-    --glass-bg: rgba(255,255,255,0.6);
-    --card-shadow: 0 6px 18px rgba(10,20,40,0.08);
-    --maxw:1100px;
-  }
-  *{box-sizing:border-box;font-family:Inter,system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial;}
-  body{margin:0;background:linear-gradient(180deg,#eef4ff 0%, #f6f8fb 100%);color:#111;}
+:root{
+  --accent:#2b7cff;
+  --bg:#f6f8fb;
+  --glass-bg: rgba(255,255,255,0.6);
+  --card-shadow: 0 6px 18px rgba(10,20,40,0.08);
+  --maxw:1100px;
+}
+*{box-sizing:border-box;font-family:Inter,system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial;}
+body{margin:0;background:linear-gradient(180deg,#eef4ff 0%, #f6f8fb 100%);color:#111;}
 
-  header{
-    position:fixed; 
-    top:0;left:0;width:100%;
-    background:rgba(255,255,255,0.5);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    z-index:100;
-    display:flex;align-items:center;justify-content:space-between;
-    padding:8px 28px;
-    box-shadow:0 2px 8px rgba(0,0,0,0.05);
-  }
-  .logo{display:flex;align-items:center;gap:12px}
-  .logo img{width:44px;height:44px;border-radius:10px;object-fit:cover}
-  .logo h1{font-size:18px;margin:0}
-  nav a{color:#222;text-decoration:none;margin-left:16px;font-weight:600}
+header{
+  position:fixed;top:0;left:0;width:100%;
+  background:rgba(255,255,255,0.5);
+  backdrop-filter: blur(10px);
+  z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:8px 0; /* sát viền trái/phải */
+  box-shadow:0 2px 8px rgba(0,0,0,0.05);
+}
 
-  .container{max-width:var(--maxw);margin:0 auto;padding:calc(28px + 72px) 28px 28px;}
-  .hero{padding:36px 0}
-  .kicker{display:inline-block;padding:6px 10px;background:rgba(43,124,255,0.12);color:var(--accent);border-radius:999px;font-weight:700;font-size:13px}
-  h2{font-size:32px;margin:16px 0 12px;line-height:1.05}
-  p.lead{color:#444;margin:0 0 20px}
+.logo{
+  display:flex;align-items:center;gap:8px;
+  margin-left:8px; /* sát viền trái */
+}
 
-  .btn-row{display:flex;gap:12px;align-items:center;margin-bottom:20px}
-  .btn{background:var(--accent);color:#fff;padding:12px 18px;border-radius:12px;text-decoration:none;font-weight:700;box-shadow:var(--card-shadow);display:inline-flex;gap:10px;align-items:center}
-  .btn.alt{background:transparent;color:var(--accent);border:2px solid rgba(43,124,255,0.14)}
+.logo img{
+  width:44px;height:44px;border-radius:10px;object-fit:cover;
+}
 
-  .card{background:var(--glass-bg);backdrop-filter: blur(6px);border-radius:14px;padding:14px;box-shadow:var(--card-shadow);margin-top:20px}
+.logo h1{
+  font-size:18px;margin:0;
+}
 
-  .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:28px}
-  .feature{background:#fff;border-radius:12px;padding:16px;box-shadow:var(--card-shadow)}
-  .feature h3{margin:0 0 8px;font-size:16px}
-  .small{font-size:13px;color:#666}
+nav a{color:#222;text-decoration:none;margin-right:16px;font-weight:600;margin-left:8px}
 
-  /* carousel */
-  .carousel-container{
-    position: relative;
-    overflow: hidden;
-    margin-top:20px;
-  }
-  .carousel-track{
-    display:flex;
-    transition: transform 0.4s ease;
-  }
-  .carousel-track img{
-    width:200px;
-    margin-right:16px;
-    border-radius:14px;
-    box-shadow:0 10px 30px rgba(15,23,40,0.12);
-  }
-  .carousel-btn{
-    position:absolute;
-    top:50%;
-    transform: translateY(-50%);
-    background:rgba(0,0,0,0.2);
-    border:none;
-    padding:10px;
-    cursor:pointer;
-    border-radius:50%;
-    color:#fff;
-  }
-  .carousel-btn.left{left:10px;}
-  .carousel-btn.right{right:10px;}
+.container{max-width:var(--maxw);margin:0 auto;padding:calc(28px + 72px) 28px 28px;} /* Giữ như cũ */
+.hero{padding:36px 0}
+.kicker{display:inline-block;padding:6px 10px;background:rgba(43,124,255,0.12);color:var(--accent);border-radius:999px;font-weight:700;font-size:13px}
+h2{font-size:32px;margin:16px 0 12px;line-height:1.05}
+p.lead{color:#444;margin:0 0 20px}
 
-  footer{margin-top:36px;padding:24px 0;color:#666;font-size:14px;text-align:center}
+.btn-row{display:flex;gap:12px;align-items:center;margin-bottom:20px}
+.btn{background:var(--accent);color:#fff;padding:12px 18px;border-radius:12px;text-decoration:none;font-weight:700;box-shadow:var(--card-shadow);display:inline-flex;gap:10px;align-items:center}
+.btn.alt{background:transparent;color:var(--accent);border:2px solid rgba(43,124,255,0.14)}
+
+.card{background:var(--glass-bg);backdrop-filter: blur(6px);border-radius:14px;padding:14px;box-shadow:var(--card-shadow);margin-top:20px}
+
+.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:28px}
+.feature{background:#fff;border-radius:12px;padding:16px;box-shadow:var(--card-shadow)}
+.feature h3{margin:0 0 8px;font-size:16px}
+.small{font-size:13px;color:#666}
+
+/* Carousel */
+.carousel-container{
+  position: relative;
+  overflow: hidden;
+  margin-top:20px;
+  padding-left:8px;  /* sát viền trái */
+}
+
+.carousel-track{
+  display:flex;
+  transition: transform 0.3s ease;
+}
+.carousel-track img,
+.carousel-track iframe{
+  height:250px;
+  width:auto;
+  margin-right:16px;
+  border-radius:14px;
+  box-shadow:0 10px 30px rgba(15,23,40,0.12);
+  object-fit:cover;
+}
+
+.carousel-btn{
+  position:absolute;top:50%;
+  transform: translateY(-50%);
+  background:rgba(0,0,0,0.2);
+  border:none;padding:10px;cursor:pointer;border-radius:50%;color:#fff;
+}
+.carousel-btn.left{left:4px;}
+.carousel-btn.right{right:4px;}
+
+footer{margin-top:36px;padding:24px 0;color:#666;font-size:14px;text-align:center}
 </style>
 </head>
 <body>
@@ -99,10 +109,10 @@
   <main class="hero" role="main">
     <span class="kicker">Phiên bản miễn phí</span>
     <h2>PlayMod — Tối ưu kết nối, cải thiện trải nghiệm chơi</h2>
-    <p class="lead">Thay đổi, chỉnh sửa mã nguồn game Free Fire, ứng dụng mang tính chất trải nghiệm.</p>
+    <p class="lead">Ứng dụng mang tính chất trải nghiệm.</p>
 
     <div class="btn-row" id="download">
-      <a class="btn" href="https://example.com/app.apk" download>⬇ Tải về APK</a>
+      <a class="btn" href="https://link4m.com/FRsTMWIf" download>⬇ Tải về APK</a>
       <a class="btn alt" href="#features">Xem tính năng</a>
     </div>
 
@@ -110,17 +120,12 @@
       <strong>Chú ý:</strong> Trước khi cài APK, hãy bật cho phép cài ứng dụng không rõ nguồn gốc. Luôn đảm bảo bạn tải file từ nguồn tin cậy.
     </div>
 
-    <!-- Tính năng -->
     <section id="features">
       <h3>Tính năng chính</h3>
       <div class="features">
         <div class="feature">
-          <h3>Chỉnh sửa file game tăng lợi thế</h3>
-          <p class="small">Các chức năng mới làm tăng lợi thế cạnh tranh.</p>
-        </div>
-        <div class="feature">
           <h3>Tối ưu trải nghiệm</h3>
-          <p class="small">Tùy chọn tối ưu game, giảm lag.</p>
+          <p class="small">Tùy chọn chức năng, cân phòng.</p>
         </div>
         <div class="feature">
           <h3>Giao diện nhẹ</h3>
@@ -133,10 +138,10 @@
     <div class="carousel-container">
       <button class="carousel-btn left" id="prev">&#10094;</button>
       <div class="carousel-track" id="carouselTrack">
-        <img src="screenshot-1.png" alt="Screenshot 1">
-        <img src="screenshot-2.png" alt="Screenshot 2">
-        <img src="screenshot-3.png" alt="Screenshot 3">
-        <img src="screenshot-4.png" alt="Screenshot 4">
+        <img src="https://i.ibb.co/7tQPKpkQ/Screenshot-20250924-111338.jpg" alt="Screenshot 1">
+        <img src="https://i.ibb.co/5XySpVR4/1758689589974.jpg" alt="Screenshot 2">
+        <iframe src="https://www.youtube.com/embed/7ybZ4cFzdNU?rel=0" frameborder="0" allowfullscreen></iframe>
+        <img src="https://i.ibb.co/5XySpVR4/1758689589974.jpg" alt="Screenshot 3">
       </div>
       <button class="carousel-btn right" id="next">&#10095;</button>
     </div>
@@ -144,28 +149,55 @@
   </main>
 
   <footer>
-    <div class="small">© <span id="year"></span> PlayMod</div>
+    <div class="small">© <span id="year"></span> Mihale Studio - PlayMod</div>
   </footer>
 </div>
 
 <script>
-  document.getElementById('year').textContent = new Date().getFullYear();
+document.getElementById('year').textContent = new Date().getFullYear();
 
-  const track = document.getElementById('carouselTrack');
-  const prev = document.getElementById('prev');
-  const next = document.getElementById('next');
-  const slideWidth = 216; // 200px width + 16px margin
-  let index = 0;
+const track = document.getElementById('carouselTrack');
+const prev = document.getElementById('prev');
+const next = document.getElementById('next');
+const slideWidth = 270; 
+let index = 0;
+const maxIndex = track.children.length - 1;
 
-  prev.addEventListener('click', ()=>{
-    index = Math.max(index - 1, 0);
-    track.style.transform = `translateX(-${index * slideWidth}px)`;
+function updateCarousel(){
+  track.style.transform = `translateX(-${index * slideWidth}px)`;
+}
+
+prev.addEventListener('click', ()=>{ index = Math.max(index-1,0); updateCarousel(); });
+next.addEventListener('click', ()=>{ index = Math.min(index+1,maxIndex); updateCarousel(); });
+
+// Vuốt trên mobile
+let startX = 0, isDragging = false;
+track.addEventListener('touchstart', e=>{ startX = e.touches[0].clientX; isDragging=true; });
+track.addEventListener('touchmove', e=>{
+  if(!isDragging) return;
+  const currentX = e.touches[0].clientX;
+  const diff = startX - currentX;
+  track.style.transform = `translateX(-${index*slideWidth + diff}px)`;
+});
+track.addEventListener('touchend', e=>{
+  isDragging=false;
+  const endX = e.changedTouches[0].clientX;
+  const diff = startX - endX;
+  if(diff > 50) index = Math.min(index+1,maxIndex);
+  else if(diff < -50) index = Math.max(index-1,0);
+  updateCarousel();
+});
+
+// Nhận diện ảnh ngang/dọc
+window.addEventListener('load', ()=>{
+  document.querySelectorAll('.carousel-track img').forEach(img=>{
+    if(img.naturalHeight > img.naturalWidth) img.classList.add('portrait');
+    else img.classList.add('landscape');
   });
-  next.addEventListener('click', ()=>{
-    const maxIndex = track.children.length - Math.floor(track.parentElement.offsetWidth / slideWidth);
-    index = Math.min(index + 1, maxIndex);
-    track.style.transform = `translateX(-${index * slideWidth}px)`;
+  document.querySelectorAll('.carousel-track iframe').forEach(iframe=>{
+    iframe.classList.add('landscape');
   });
+});
 </script>
 
 </body>
