@@ -22,13 +22,13 @@ header{
   backdrop-filter: blur(10px);
   z-index:100;
   display:flex;align-items:center;justify-content:space-between;
-  padding:8px 0; /* sát viền trái/phải */
+  padding:8px 0;
   box-shadow:0 2px 8px rgba(0,0,0,0.05);
 }
 
 .logo{
   display:flex;align-items:center;gap:8px;
-  margin-left:8px; /* sát viền trái */
+  margin-left:8px;
 }
 
 .logo img{
@@ -41,7 +41,7 @@ header{
 
 nav a{color:#222;text-decoration:none;margin-right:16px;font-weight:600;margin-left:8px}
 
-.container{max-width:var(--maxw);margin:0 auto;padding:calc(28px + 72px) 28px 28px;} /* Giữ như cũ */
+.container{max-width:var(--maxw);margin:0 auto;padding:calc(28px + 72px) 28px 28px;}
 .hero{padding:36px 0}
 .kicker{display:inline-block;padding:6px 10px;background:rgba(43,124,255,0.12);color:var(--accent);border-radius:999px;font-weight:700;font-size:13px}
 h2{font-size:32px;margin:16px 0 12px;line-height:1.05}
@@ -58,37 +58,39 @@ p.lead{color:#444;margin:0 0 20px}
 .feature h3{margin:0 0 8px;font-size:16px}
 .small{font-size:13px;color:#666}
 
-/* Carousel */
-.carousel-container{
-  position: relative;
-  overflow: hidden;
-  margin-top:20px;
-  padding-left:8px;  /* sát viền trái */
-}
-
-.carousel-track{
+/* Ảnh hiển thị thay carousel */
+.image-preview{
+  margin-top:24px;
   display:flex;
-  transition: transform 0.3s ease;
+  justify-content:center;
 }
-.carousel-track img,
-.carousel-track iframe{
-  height:250px;
-  width:auto;
-  margin-right:16px;
-  border-radius:14px;
+.image-preview img{
+  width:100%;
+  max-width:480px;
+  border-radius:16px;
   box-shadow:0 10px 30px rgba(15,23,40,0.12);
   object-fit:cover;
 }
 
-.carousel-btn{
-  position:absolute;top:50%;
-  transform: translateY(-50%);
-  background:rgba(0,0,0,0.2);
-  border:none;padding:10px;cursor:pointer;border-radius:50%;color:#fff;
+/* Chính sách */
+.policy{
+  margin-top:40px;
+  background:#fff;
+  border-radius:16px;
+  box-shadow:var(--card-shadow);
+  padding:20px;
 }
-.carousel-btn.left{left:4px;}
-.carousel-btn.right{right:4px;}
+.policy h3{margin-top:0;font-size:20px;color:var(--accent);}
+.policy p{font-size:14px;color:#444;margin:8px 0;}
+.policy-toggle{display:flex;align-items:center;justify-content:center;margin-top:16px;}
+.policy-btn{
+  background:var(--accent);color:#fff;padding:10px 18px;border:none;border-radius:10px;font-weight:600;cursor:pointer;
+  box-shadow:var(--card-shadow);
+}
+.policy-content{display:none;margin-top:10px;animation:fadeIn 0.3s ease;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(5px);}to{opacity:1;transform:translateY(0);}}
 
+/* Footer */
 footer{margin-top:36px;padding:24px 0;color:#666;font-size:14px;text-align:center}
 </style>
 </head>
@@ -112,7 +114,7 @@ footer{margin-top:36px;padding:24px 0;color:#666;font-size:14px;text-align:cente
     <p class="lead">Ứng dụng mang tính chất trải nghiệm.</p>
 
     <div class="btn-row" id="download">
-      <a class="btn" href="https://oklink.cfd/mf4j" download>⬇ Tải về APK</a>
+      <a class="btn" href="https://oklink.cfd/etrp" download>⬇ Tải về APK</a>
       <a class="btn alt" href="#features">Xem tính năng</a>
     </div>
 
@@ -125,7 +127,7 @@ footer{margin-top:36px;padding:24px 0;color:#666;font-size:14px;text-align:cente
       <div class="features">
         <div class="feature">
           <h3>Tối ưu trải nghiệm</h3>
-          <p class="small">Tùy chọn chức năng, cân phòng.</p>
+          <p class="small">Tùy chọn chức năng, các chức năng mới siêu bá </p>
         </div>
         <div class="feature">
           <h3>Giao diện nhẹ</h3>
@@ -134,16 +136,24 @@ footer{margin-top:36px;padding:24px 0;color:#666;font-size:14px;text-align:cente
       </div>
     </section>
 
-    <!-- Carousel -->
-    <div class="carousel-container">
-      <button class="carousel-btn left" id="prev">&#10094;</button>
-      <div class="carousel-track" id="carouselTrack">
-        <img src="https://i.ibb.co/7tQPKpkQ/Screenshot-20250924-111338.jpg" alt="Screenshot 1">
-        <img src="https://i.ibb.co/5XySpVR4/1758689589974.jpg" alt="Screenshot 2">
-        <iframe src="https://www.youtube.com/embed/7ybZ4cFzdNU?rel=0" frameborder="0" allowfullscreen></iframe>
-        <img src="https://i.ibb.co/5XySpVR4/1758689589974.jpg" alt="Screenshot 3">
+    <!-- Ảnh duy nhất thay cho carousel -->
+    <div class="image-preview">
+      <img src="https://i.ibb.co/Y7zM3Rth/Screenshot-20251006-184316.jpg" alt="Preview PlayMod">
+    </div>
+
+    <!-- Chính sách & Điều khoản -->
+    <div class="policy">
+      <h3>Chính sách & Điều khoản</h3>
+      <div class="policy-toggle">
+        <button class="policy-btn" id="togglePolicy">Hiển thị nội dung</button>
       </div>
-      <button class="carousel-btn right" id="next">&#10095;</button>
+      <div class="policy-content" id="policyContent">
+        <p><strong>1. Thu thập dữ liệu:</strong> PlayMod không thu thập thông tin cá nhân của người dùng, ngoại trừ các dữ liệu kỹ thuật ẩn danh phục vụ tối ưu hiệu năng.</p>
+        <p><strong>2. Quyền riêng tư:</strong> Mọi dữ liệu được xử lý cục bộ trên thiết bị. Ứng dụng không gửi thông tin ra ngoài nếu không có sự đồng ý.</p>
+        <p><strong>3. Trách nhiệm người dùng:</strong> Người dùng chịu trách nhiệm về việc cài đặt và sử dụng ứng dụng theo quy định của pháp luật Việt Nam.</p>
+        <p><strong>4. Sử dụng bên thứ ba:</strong> Ứng dụng có thể sử dụng dịch vụ của bên thứ ba (như thư viện SDK) để cải thiện tính năng.</p>
+        <p><strong>5. Giới hạn trách nhiệm:</strong> Mihale Studio không chịu trách nhiệm với mọi thiệt hại phát sinh từ việc sử dụng sai mục đích hoặc chỉnh sửa trái phép ứng dụng.</p>
+      </div>
     </div>
 
   </main>
@@ -156,49 +166,15 @@ footer{margin-top:36px;padding:24px 0;color:#666;font-size:14px;text-align:cente
 <script>
 document.getElementById('year').textContent = new Date().getFullYear();
 
-const track = document.getElementById('carouselTrack');
-const prev = document.getElementById('prev');
-const next = document.getElementById('next');
-const slideWidth = 270; 
-let index = 0;
-const maxIndex = track.children.length - 1;
-
-function updateCarousel(){
-  track.style.transform = `translateX(-${index * slideWidth}px)`;
-}
-
-prev.addEventListener('click', ()=>{ index = Math.max(index-1,0); updateCarousel(); });
-next.addEventListener('click', ()=>{ index = Math.min(index+1,maxIndex); updateCarousel(); });
-
-// Vuốt trên mobile
-let startX = 0, isDragging = false;
-track.addEventListener('touchstart', e=>{ startX = e.touches[0].clientX; isDragging=true; });
-track.addEventListener('touchmove', e=>{
-  if(!isDragging) return;
-  const currentX = e.touches[0].clientX;
-  const diff = startX - currentX;
-  track.style.transform = `translateX(-${index*slideWidth + diff}px)`;
-});
-track.addEventListener('touchend', e=>{
-  isDragging=false;
-  const endX = e.changedTouches[0].clientX;
-  const diff = startX - endX;
-  if(diff > 50) index = Math.min(index+1,maxIndex);
-  else if(diff < -50) index = Math.max(index-1,0);
-  updateCarousel();
-});
-
-// Nhận diện ảnh ngang/dọc
-window.addEventListener('load', ()=>{
-  document.querySelectorAll('.carousel-track img').forEach(img=>{
-    if(img.naturalHeight > img.naturalWidth) img.classList.add('portrait');
-    else img.classList.add('landscape');
-  });
-  document.querySelectorAll('.carousel-track iframe').forEach(iframe=>{
-    iframe.classList.add('landscape');
-  });
+const toggleBtn = document.getElementById('togglePolicy');
+const policyContent = document.getElementById('policyContent');
+let isOpen = false;
+toggleBtn.addEventListener('click', ()=>{
+  isOpen = !isOpen;
+  policyContent.style.display = isOpen ? 'block' : 'none';
+  toggleBtn.textContent = isOpen ? 'Ẩn nội dung' : 'Hiển thị nội dung';
 });
 </script>
 
 </body>
-</html>
+        </html>
